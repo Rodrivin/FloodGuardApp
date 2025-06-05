@@ -12,10 +12,45 @@ const LoginScreen = () => {
       Alert.alert('Campos Vazios', 'Por favor, preencha seu e-mail e nome para continuar.');
       return;
     }
+
+    // Validação básica de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      Alert.alert('Email Inválido', 'Por favor, insira um email válido.');
+      return;
+    }
+
     // Simula um login bem-sucedido
-    Alert.alert('Sucesso', `Bem-vindo(a), ${name}!`, [
-      { text: 'OK', onPress: () => navigation.navigate('Monitoring') }
-    ]);
+    Alert.alert(
+      'Sucesso',
+      `Bem-vindo(a), ${name}!`,
+      [
+        {
+          text: 'OK',
+          onPress: () => {
+            // Navega para a tela de monitoramento
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Monitoring' }],
+            });
+          }
+        }
+      ]
+    );
+  };
+
+  const handleMockLogin = () => {
+    // Usuário mockado
+    const mockUser = {
+      email: 'usuario@teste.com',
+      name: 'Usuário Teste'
+    };
+
+    // Navega diretamente para a tela de monitoramento
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Monitoring' }],
+    });
   };
 
   return (
@@ -46,8 +81,20 @@ const LoginScreen = () => {
         />
       </View>
 
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+      <TouchableOpacity 
+        style={styles.loginButton} 
+        onPress={handleLogin}
+        activeOpacity={0.8}
+      >
         <Text style={styles.buttonText}>Entrar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={styles.mockLoginButton} 
+        onPress={handleMockLogin}
+        activeOpacity={0.8}
+      >
+        <Text style={styles.mockButtonText}>Login Rápido (Usuário Teste)</Text>
       </TouchableOpacity>
 
       <Text style={styles.footerText}>
@@ -120,6 +167,25 @@ const styles = StyleSheet.create({
     color: '#FFFFFF', // White text
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  mockLoginButton: {
+    width: '100%',
+    padding: 15,
+    backgroundColor: '#95A5A6', // Cor mais suave para diferenciar do botão principal
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+    shadowColor: '#95A5A6',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  mockButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
   },
   footerText: {
     fontSize: 12,
