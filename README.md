@@ -26,18 +26,19 @@ O **FloodGuardApp** foi criado com o objetivo de fornecer uma solução prática
 ## 📁 Estrutura de Pastas
 
 FloodGuardApp/
-├── assets/ # Ícones e imagens
-├── screens/ # Telas da aplicação
-│ ├── DashboardScreen.js
-│ ├── AlertsScreen.js
-│ ├── ActionControlScreen.js
-│ ├── HistoryScreen.js
-│ ├── LoginScreen.js
-│ └── MonitoringDetailsScreen.js
-├── services/ # APIs e lógica externa
-├── App.js # Entrada principal da aplicação
-├── app.json # Configuração do Expo
-├── package.json # Dependências do projeto
+├── assets/                  # Ícones e imagens
+├── screens/                 # Telas da aplicação
+│   ├── DashboardScreen.js
+│   ├── AlertsScreen.js
+│   ├── ActionControlScreen.js
+│   ├── HistoryScreen.js
+│   ├── LoginScreen.js
+│   └── MonitoringDetailsScreen.js
+├── services/                # APIs e lógica externa
+├── App.js                   # Entrada principal da aplicação
+├── app.json                 # Configuração do Expo
+├── package.json             # Dependências do projeto
+
 ## ▶️ Como Rodar o Projeto
 
 1. Clone este repositório:
